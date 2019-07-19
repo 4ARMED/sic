@@ -30,7 +30,7 @@ use url::Url;
 ///
 /// A boxed Future (trait object) is used as it is easier to understand
 /// and extend with more types. Advanced users could switch to `Either`.
-type BoxFut = Box<Future<Item = Response<Body>, Error = hyper::Error> + Send>;
+type BoxFut = Box<dyn Future<Item = Response<Body>, Error = hyper::Error> + Send>;
 
 fn parse_query_params(req: &Request<Body>) -> HashMap<String, String> {
     let url = Url::parse("http://localhost").unwrap().join(&req.uri().to_string()).unwrap();
