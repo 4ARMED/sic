@@ -42,6 +42,6 @@ COPY --from=cargo-build /usr/src/sic/target/x86_64-unknown-linux-musl/release/si
 
 RUN chown sic:sic sic
 
-USER sic
+USER 1000
 
 ENTRYPOINT ["./sic"]
